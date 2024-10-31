@@ -1,0 +1,34 @@
+int LedVermelho=11;
+int LedAmarelo=10;
+int LedVerde=9;
+int LedAzul=6;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LedVermelho,OUTPUT);
+  pinMode(LedAmarelo,OUTPUT);
+  pinMode(LedVerde,OUTPUT);
+  pinMode(LedAzul,OUTPUT);
+}
+
+void loop() {
+  int valorpot=analogRead(A0);
+  Serial.println(valorpot);
+  digitalWrite(LedVermelho,LOW);
+  if(valorpot>0 && valorpot<=255){
+    digitalWrite(LedVermelho,HIGH);
+    }
+    digitalWrite(LedAmarelo,LOW);
+  if(valorpot>255 && valorpot<512){
+    digitalWrite(LedAmarelo,HIGH);
+    }
+    digitalWrite(LedVerde,LOW);
+  if(valorpot>512 && valorpot<755){
+    digitalWrite(LedVerde,HIGH);
+    }
+    digitalWrite(LedAzul,LOW);
+  if(valorpot>755 && valorpot<1024){
+    digitalWrite(LedAzul,HIGH);
+    }
+  delay(250);
+}

@@ -1,0 +1,37 @@
+int LedVermelho=11;
+int LedAmarelo=10;
+int LedVerde=9;
+int LedAzul=6;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LedVermelho,OUTPUT);
+  pinMode(LedAmarelo,OUTPUT);
+  pinMode(LedVerde,OUTPUT);
+  pinMode(LedAzul,OUTPUT);
+}
+
+void loop() {
+  int tempo=analogRead(A0);
+  Serial.println(tempo);
+    digitalWrite(LedVermelho,HIGH);
+    delay(tempo);
+    digitalWrite(LedVermelho,LOW);
+    delay(tempo);
+    
+    digitalWrite(LedAmarelo,HIGH);
+    delay(tempo);
+    digitalWrite(LedAmarelo,LOW);
+    delay(tempo);
+    
+    digitalWrite(LedVerde,HIGH);
+    delay(tempo);
+    digitalWrite(LedVerde,LOW);
+    delay(tempo);
+    
+    digitalWrite(LedAzul,HIGH);
+    delay(tempo);
+    digitalWrite(LedAzul,LOW);
+    delay(tempo);
+    
+}

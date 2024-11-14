@@ -1,0 +1,34 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+//Inicializa o display no endereco 0x27
+LiquidCrystal_I2C lcd(0x27,16,2);
+
+ int LedAzul=2;
+ int LedAmarelo=4;
+ int LedLaranja=7;
+void setup()
+{lcd.init();
+lcd.setBacklight(HIGH);
+pinMode(LedAzul,OUTPUT);
+pinMode(LedAmarelo,OUTPUT);
+pinMode(LedLaranja,OUTPUT);
+
+ }
+void loop()
+{
+  int valorpot=analogRead(A0);
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Potec "+String(valorpot));
+  lcd.setCursor(0,1);
+  if (valorpot>0 && valorpot<=333){lcd.print("Led azul ON");}
+  digitalWrite(LedAzul,HIGH);
+  delay(500);
+  if (valorpot>334 && valorpot<=777){lcd.print("Led amarelo ON");}
+  digitalWrite(LedAmarelo,HIGH);
+  delay(500);
+  if (valorpot>778 && valorpot<=1023){lcd.print("Led laranja ON");}
+  digitalWrite(LedLaranja,HIGH);
+  delay(500);
+}

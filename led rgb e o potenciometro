@@ -1,0 +1,41 @@
+int LedR=11;
+int LedG=10;
+int LedB=9;
+
+int LedRA=6;
+int LedGA=5;
+int LedBA=3;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LedR,OUTPUT);
+  pinMode(LedG,OUTPUT);
+  pinMode(LedB,OUTPUT);
+  
+  pinMode(LedRA,OUTPUT);
+  pinMode(LedGA,OUTPUT);
+  pinMode(LedBA,OUTPUT);
+}
+
+void loop() {
+  int valorpot=analogRead(A0);
+  Serial.print(valorpot);
+ if (valorpot>0 && valorpot<=255){
+ analogWrite(LedR,0);analogWrite(LedG,255);analogWrite(LedB,0);
+ analogWrite(LedRA,255);analogWrite(LedGA,0);analogWrite(LedBA,0);
+}
+ if (valorpot>256 && valorpot<=512){
+ analogWrite(LedR,0);analogWrite(LedG,0);analogWrite(LedB,255);
+ analogWrite(LedRA,255);analogWrite(LedGA,0);analogWrite(LedBA,255);
+ }
+  if (valorpot>513 && valorpot<=755){
+ analogWrite(LedR,255);analogWrite(LedG,255);analogWrite(LedB,0);
+ analogWrite(LedRA,0);analogWrite(LedGA,255);analogWrite(LedBA,255);
+  }
+   if (valorpot>756 && valorpot<=1024){
+ analogWrite(LedR,0);analogWrite(LedG,255);analogWrite(LedB,0);
+ analogWrite(LedRA,255);analogWrite(LedGA,0);analogWrite(LedBA,0);
+
+delay(250);
+}
+}

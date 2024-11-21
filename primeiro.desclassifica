@@ -1,0 +1,17 @@
+int LedR=11;
+int LedG=10;
+int LedB=9;
+
+int LedRA=6;
+int LedGA=5;
+int LedBA=3;
+
+void setup() {
+  pinMode(LedR,OUTPUT);
+  pinMode(LedG,OUTPUT);
+  pinMode(LedB,OUTPUT); 
+}
+ void loop() {
+  analogWrite(LedR,125);
+  analogWrite(LedR,125);
+ }

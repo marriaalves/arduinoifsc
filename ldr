@@ -1,0 +1,13 @@
+int luz=0;
+
+void setup() {
+  Serial.begin(9600);
+
+}
+
+void loop() {
+ luz=analogRead(A0);
+ Serial.println(luz);
+ delay(250);
+
+}
